@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    networks:
+      - student-network
+    volumes:
+      - student-data:/var/lib/postgresql/data
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: rachit
+      POSTGRES_PASSWORD: 9124
+      POSTGRES_DB: postgres
+    networks:
+      - student-network
+
+networks:
+  student-network:
+    driver: bridge
+
+volumes:
+  student-data:

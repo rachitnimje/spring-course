@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="alien" class="org.springdemo.Alien" autowire="byName">
+        <property name="age" value="10"> </property>
+<!--        <constructor-arg name="age" value="45"> </constructor-arg>-->
+<!--        <property name="com" ref="com"> </property>-->
+    </bean>
+
+    <bean id="com" class="org.springdemo.Desktop" lazy-init="true" primary="true"> </bean>
+    <bean id="lap" class="org.springdemo.Laptop" lazy-init="true"> </bean>
+</beans>
